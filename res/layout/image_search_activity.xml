@@ -5,33 +5,40 @@
     tools:context="${packageName}.${activityClass}" >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/etSearchText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="14dp"
-        android:ems="10" >
-
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:hint="@+id/etSearchText" 
+        android:ems="10">
+        
         <requestFocus />
     </EditText>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText1"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_toRightOf="@+id/editText1"
-        android:text="Button" />
+        android:layout_alignBottom="@+id/etSearchText"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:text="@string/btSearch" 
+        android:onClick="searchForResults"/>
 
-    <GridLayout
+    <GridView
+        android:id="@+id/gvResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp" >
-    </GridLayout>
+        android:layout_alignLeft="@+id/etSearchText"
+        android:layout_alignRight="@+id/btSearch"
+        android:layout_below="@+id/etSearchText"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:numColumns="3" >
+
+    </GridView>
 
 </RelativeLayout>

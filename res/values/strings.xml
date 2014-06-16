@@ -3,5 +3,10 @@
 
     <string name="app_name">PhotoSearch</string>
     <string name="hello_world">Hello world!</string>
+    <string name="btSearch">Search</string>
+    <string name="etSearchHint">Search Images for:</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="tvSearchLabel">Advanced Search Options</string>
+    <string name="title_activity_full_image">FullImage</string>
 
 </resources>
