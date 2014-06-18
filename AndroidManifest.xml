@@ -9,7 +9,7 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,11 +26,11 @@
         </activity>
         <activity
             android:name="com.smalltricks.photosearch.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.smalltricks.photosearch.FullImage"
-            android:label="@string/title_activity_full_image" >
+            android:label="@string/app_name" >
         </activity>
     </application>
 
