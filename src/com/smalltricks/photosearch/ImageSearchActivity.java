@@ -21,21 +21,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class ImageSearchActivity extends Activity {
-	EditText etSearchText;
+	
 	GridView gvResults;
-	Button btSearch;
+	
 	ArrayList<ImageResult> imageResults = new ArrayList<ImageResult>();
 	ImageResultArrayAdapter imageAdapter;
 	SharedPreferences pref;
+	SearchView searchView;
+	String searchQuery;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +70,7 @@ public class ImageSearchActivity extends Activity {
     }
     
     public void customLoadMoreDataApi(int offset){
-    	String searchQuery = etSearchText.getText().toString();
-    	
+    	    	
     	String imageSize = pref.getString("imageSize", "");
     	String imageType = pref.getString("imageType", "");
     	String colorFilter = pref.getString("colorFilter", "");
@@ -115,6 +116,24 @@ public class ImageSearchActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
     	// TODO Auto-generated method stub
     	getMenuInflater().inflate(R.menu.main_menu, menu);
+    	MenuItem searchItem = menu.findItem(R.id.action_search);
+    	searchView = (SearchView)searchItem.getActionView();
+    	searchView.setOnQueryTextListener(new OnQueryTextListener() {
+			
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				// TODO Auto-generated method stub
+				searchQuery = query;
+				searchForResults();
+				return true;
+			}
+			
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
     	return super.onCreateOptionsMenu(menu);
     }
     
@@ -129,9 +148,9 @@ public class ImageSearchActivity extends Activity {
     	return super.onOptionsItemSelected(item);
     }
     public void setupViews(){
-    	etSearchText = (EditText)findViewById(R.id.etSearchText);
+    	
     	gvResults = (GridView)findViewById(R.id.gvResults);
-    	btSearch = (Button)findViewById(R.id.btSearch);
+    	
     }
     
     private Boolean isNetworkAvailable() {
@@ -141,8 +160,8 @@ public class ImageSearchActivity extends Activity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
     
-    public void searchForResults(View v){
-    	String searchQuery = etSearchText.getText().toString();
+    public void searchForResults(){
+    	//String searchQuery = etSearchText.getText().toString();
     	
     	String imageSize = pref.getString("imageSize", "");
     	String imageType = pref.getString("imageType", "");

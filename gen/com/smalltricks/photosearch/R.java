@@ -21,12 +21,11 @@ public final class R {
         public static final int ic_settings=0x7f020002;
     }
     public static final class id {
-        public static final int action_search=0x7f08000f;
+        public static final int action_search=0x7f08000d;
         public static final int btSaveSettings=0x7f08000a;
-        public static final int btSearch=0x7f08000c;
-        public static final int etSearchText=0x7f08000b;
+        public static final int etSearchText=0x7f08000c;
         public static final int etSiteFilter=0x7f080009;
-        public static final int gvResults=0x7f08000d;
+        public static final int gvResults=0x7f08000b;
         public static final int item1=0x7f08000e;
         public static final int ivResult=0x7f080000;
         public static final int spColorFilter=0x7f080005;
@@ -50,6 +49,7 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f040000;
         public static final int btSearch=0x7f040002;
+        public static final int default_choice=0x7f040007;
         public static final int etSearchHint=0x7f040003;
         public static final int hello_world=0x7f040001;
         public static final int title_activity_full_image=0x7f040006;
